@@ -24,9 +24,9 @@ for size in "${sizes[@]}"; do
     done
 done
 
-# for size in "${sizes[@]}"; do
-#     for model in "${models_vllm[@]}"; do
-#         echo "Running Q5 cascades with -s $size and -m $model"
-#         python lotus/queries/selection/Q5/cascades.py --wandb -s $size -m $model -p vllm
-#     done
-# done
+for size in "${sizes[@]}"; do
+    for model in "${models_vllm[@]}"; do
+        echo "Running Q5 cascades with -s $size and -m $model"
+        python lotus/queries/selection/Q5/cascades.py --wandb -s $size -m $model -p vllm
+    done
+done

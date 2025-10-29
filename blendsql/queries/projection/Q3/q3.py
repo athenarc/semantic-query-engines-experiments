@@ -38,16 +38,17 @@ elif args.provider == 'vllm':
     model = LiteLLM("hosted_vllm/" + args.model, 
                     config={"api_base": "http://localhost:5001/v1", "timeout": 50000, "cache": False}, 
                     caching=False)
+elif args.provider == 'transformers':
+    model = TransformersLLM(
+        "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
+        config={"device_map": "auto"},
+        caching=False,
+    )
 
 
 # Prepare our BlendSQL connection
 bsql = BlendSQL(
     db=players,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -60,6 +61,7 @@ smoothie = bsql.execute(
     SELECT Players.player_name, {{
         LLMMAP(
             'Return the nationality of the player.',
+            return_type='str',
             Players.player_name,
         )
     }}
@@ -72,7 +74,7 @@ exec_time = time.time() - start
 print(smoothie.df)
 
 if args.wandb:
-    smoothie.df.to_csv(f"evaluation/projection/Q3/results/blendsql_Q1_map_{args.model.replace('/', '_').replace(':', '_')}_{args.provider}_{args.size}.csv")
+    smoothie.df.to_csv(f"evaluation/projection/Q3/results/blendsql_Q3_map_{args.model.replace('/', '_').replace(':', '_')}_{args.provider}_{args.size}.csv")
 
     wandb.log({
         "result_table": wandb.Table(dataframe=smoothie.df),

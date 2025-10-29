@@ -38,16 +38,17 @@ elif args.provider == 'vllm':
     model = LiteLLM("hosted_vllm/" + args.model, 
                     config={"api_base": "http://localhost:5001/v1", "timeout": 50000, "cache": False}, 
                     caching=False)
+elif args.provider == 'transformers':
+    model = TransformersLLM(
+        "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
+        config={"device_map": "auto"},
+        caching=False,
+    )
 
 
 # Prepare our BlendSQL connection
 bsql = BlendSQL(
     db=players,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -61,6 +62,7 @@ smoothie = bsql.execute(
         LLMMAP(
             'Return the birthdate of the player in format: DD/MM/YYYY.',
             Players.player_name,
+            return_type='str'
         )
     }}
     FROM Players

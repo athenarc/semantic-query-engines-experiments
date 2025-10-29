@@ -1,0 +1,681 @@
+,player_name,_col_1
+0,Mike Miller, 02/09/1989
+1,Quincy Acy, 25/10/1995
+2,Joe Johnson,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+- Joe Harris
+- Joe Ingles
+- Joe Johnson
+- Joel Anthony
+- Joey Dorsey
+
+Their respective birthdates are (in DD/MM/YYYY format):
+- Joe Harris: 06/09/1991
+- Joe Ingles: 02/10/1987
+- Joe Johnson: 29/06/1981
+- Joel Anthony: 09/08/1982
+- Joey Dorsey: 16/12/1983
+
+So, the answer would be:
+06/09/1991"
+3,Brook Lopez, 01/04/1988
+4,Davis Bertans," 12/11/1992
+
+Please note that these dates might not be up-to-date or accurate, as my knowledge cutoff is limited. For the most accurate information, it's best to consult a reliable and current source."
+5,DeAndre' Bembry, 30/07/1993
+6,Okaro White, 19/06/1989
+7,Deron Williams, 26/06/1984
+8,Glen Davis," 04/09/1994
+
+
+Please note that these dates might not be accurate or up-to-date. The actual birthdates may vary depending on the source and availability of information.
+
+
+Also, please note that this is a text-based AI model, I don't have direct access to any database, so the answer provided above is based on general knowledge and may not reflect the actual data in your specific database."
+9,Raul Neto,24/09/1991
+10,Kevin Martin,"09/12/1995
+
+Note: The birthdates are based on publicly available information and might not be up-to-date or accurate. 
+
+Please let me know if you need any further assistance!"
+11,Rudy Gay, 19/05/1992
+12,Marquese Chriss," 11/12/1993
+
+
+Please note that these dates might not be accurate or up-to-date. For precise information, it's best to consult a reliable source or the database itself."
+13,Justise Winslow,02/03/1987
+14,Emmanuel Mudiay,"
+    ```
+
+3. **Format the Birthdate**: Once you have the birthdates, you would need to format them as DD/MM/YYYY. The exact method for this depends on your database system and programming language. For example, in MySQL, you could use the `DATE_FORMAT` function:
+
+    ```sql
+    SELECT DATE_FORMAT(birthdate, '%d/%m/%Y') 
+    FROM Players 
+    WHERE player_name IN ('Elijah Millsap', 'Emmanuel Mudiay', 'Eric Bledsoe', 'Eric Gordon', 'Erick Green')"
+15,Erick Green,09/12/1989
+16,E'Twaun Moore, 25/02/1989
+17,Josh Richardson,14/05/1990
+18,Sergey Karasev, 29/10/1992
+19,Evan Turner,09/05/1991
+20,Isaiah Canaan,07/03/1991
+21,Zoran Dragic, 24/08/1994
+22,Doug McDermott,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the birthdates in the format DD/MM/YYYY:
+
+* Doug McDermott: 20/01/1992
+* Dwyane Wade: 17/01/1982
+* E'Twaun Moore: 25/02/1989
+* Ed Davis: 05/06/1989
+* Elfrid Payton: 22/02/1994
+
+So, the answer would be:
+20/01/1992"
+23,Ray McCallum,29/08/1991
+24,Jusuf Nurkic,14/09/1989
+25,Joel Anthony,02/10/1987
+26,Cameron Payne," 08/08/1994
+
+
+Please note that these dates might not be accurate or up-to-date. For precise information, it's best to consult a reliable source or the database itself."
+27,Troy Williams,07/15/1992
+28,Henry Sims,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide a general approach on how one might solve this using hypothetical data.
+
+Assuming there's a table named ""Players"" with columns for ""player_name"" and ""birthdate"", you could query this information directly from the database. However, without actual database access or specific birthdate information for these players, I can only demonstrate the logic:
+
+1. Connect to your database.
+2. Query the ""Players"" table for the ""birthdate"" where ""player_name"" matches each of the given names.
+3. Format the retrieved birthdates into ""DD/MM/YYYY"" format.
+
+Given the lack of specific data and direct database access, let's proceed with what we know about these players from public knowledge (which might not be up-to-date or accurate):
+
+- Hassan Whiteside: Born June 13, 1989
+- Hedo Turkoglu: Born March 19, 1979
+- Henry Sims: Born March 1, 1990
+- Hollis Thompson: Born April 3, 1991
+- Ian Clark: Born March 7, 1991
+
+Thus, the formatted answer based on publicly available information (and assuming it's accurate) would be:
+
+13/06/1989"
+29,Jarell Eddie,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information. Please note that the accuracy and availability of this information might vary.
+
+
+Given the names:
+1. James Harden
+2. James Michael McAdoo
+3. Jarell Eddie
+4. Jason Richardson
+5. Jason Terry
+
+Their respective birthdates are (in the format DD/MM/YYYY, based on publicly available data):
+- James Harden: 26/08/1989
+- James Michael McAdoo: 04/01/1993
+- Jarell Eddie: 30/10/1991
+- Jason Richardson: 20/01/1976
+- Jason Terry: 15/09/1977
+
+So, the answer would be:
+26/08/1989"
+30,A.J. Price,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+A.J. Price - October 7, 1986
+Aaron Brooks - January 14, 1985
+Adreian Payne - February 19, 1991
+Al Jefferson - January 4, 1985
+Al-Farouq Aminu - September 21, 1990
+
+
+So the answer in DD/MM/YYYY format would be:
+07/10/1986"
+31,Sebastian Telfair, 01/04/1988
+32,Francisco Garcia, 27/10/1988
+33,Patty Mills,13/08/1992
+34,Omer Asik, 13/09/1982
+35,Kawhi Leonard, 28/03/1991
+36,Denzel Valentine,"To answer this question, I would need access to the actual database or a list of birthdates for these players. However, based on publicly available information, here are the answers:
+
+
+18/11/1993"
+37,Quincy Miller,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the answers:
+
+
+Patty Mills - 11/08/1988
+Pau Gasol - 06/07/1980
+Pero Antic - 29/07/1982
+Perry Jones III - 24/09/1991
+Pierre Jackson - 29/08/1991
+
+
+So the answer would be: 
+11/08/1988"
+38,DeAndre Liggins, 31/03/1988
+39,Hollis Thompson,19/03/1979
+40,Grant Jerrett,01/01/1986
+41,Josh McRoberts,06/09/1990
+42,Gary Harris, 21/10/1989
+43,Jonas Jerebko, 06/09/1990
+44,John Henson,09/08/1982
+45,Kendall Marshall, 26/03/1996
+46,PJ Tucker,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+The birthdates for these players are as follows:
+- Nicolas Batum: December 14, 1988
+- Nikola Jokic: February 19, 1995
+- Norris Cole: October 13, 1988
+- O.J. Mayo: November 5, 1987
+- Okaro White: August 13, 1992
+
+Therefore, the formatted birthdates would be:
+14/12/1988"
+47,Adreian Payne,19/02/1991
+48,Nicolas Batum," 29/04/1991
+
+Please note that these dates might not be accurate or up-to-date, as they are based on publicly available information and may have changed since the last update. 
+
+Also, please note that the format of the answer is DD/MM/YYYY as requested."
+49,Marc Gasol,23/03/1992
+50,Chase Budinger,22/05/1988
+51,Cristiano Felicio,07/07/1992
+52,Kevon Looney,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the birthdates in the format DD/MM/YYYY:
+
+
+Kendall Marshall - 19/08/1991
+Kenneth Faried - 19/11/1989
+Kent Bazemore - 01/07/1989
+Kevin Durant - 29/09/1988
+Kevin Garnett - 19/05/1976
+
+
+So the answer would be: 
+19/08/1991"
+53,Rajon Rondo,06/07/1980
+54,Pau Gasol,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Omer Asik
+2. PJ Tucker
+3. Pablo Prigioni
+4. Patrick Beverley
+5. Patrick McCaw
+
+Their respective birthdates are (in DD/MM/YYYY format, based on public data):
+1. Omer Asik - 04/07/1986
+2. PJ Tucker - 05/05/1985
+3. Pablo Prigioni - 17/05/1977
+4. Patrick Beverley - 12/07/1988
+5. Patrick McCaw - 25/10/1995
+
+So, the answer would be:
+04/07/1986"
+55,Martell Webster,"To answer this question, I would need access to a database containing information about the players, including their birthdates. However, based on publicly available data, here are the answers:
+
+
+29/07/1985"
+56,Brandon Jennings,23/09/1989
+57,Dario Saric, 08/04/1994
+58,Blake Griffin,16/03/1989
+59,Malcolm Brogdon,20/09/1993
+60,Perry Jones III, 17/05/1977
+61,Kevin Durant,29/06/1991
+62,Joe Ingles, 21/08/1987
+63,Ed Davis, 05/06/1989
+64,Solomon Hill,"To answer this question, I would need access to a database containing the birthdates of the players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information or general knowledge. Please note that the accuracy might vary without direct access to up-to-date and accurate data.
+
+Given the names:
+1. Sergey Karasev
+2. Sergio Rodriguez
+3. Shane Larkin
+4. Shawn Long
+5. Shawn Marion
+
+Their respective birthdates are (based on publicly available information):
+1. Sergey Karasev - 26/10/1993
+2. Sergio Rodriguez - 12/06/1986
+3. Shane Larkin - 02/10/1992
+4. Shawn Long - 29/01/1993
+5. Shawn Marion - 07/05/1978
+
+So, the answer in the format DD/MM/YYYY would be:
+26/10/1993"
+65,Deyonta Davis, 02/12/1996
+66,Shane Larkin, 19/04/1991
+67,CJ Watson, 17/04/1984
+68,Terry Rozier,18/03/1991
+69,Carl Landry,"To answer this question, I would need access to the actual database or a list of birthdates for the players. However, based on publicly available information, here are the birthdates for each player in the format DD/MM/YYYY:
+
+
+Carl Landry: 19/09/1983
+Caron Butler: 13/03/1980
+Chandler Parsons: 25/10/1988
+Channing Frye: 17/05/1983
+Chase Budinger: 22/05/1988
+
+
+So the answer would be:
+19/09/1983"
+70,Timofey Mozgov,28/04/1988
+71,Reggie Williams, 18/11/1992
+72,Robin Lopez, 22/02/1986
+73,Russ Smith,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Ray McCallum
+2. Reggie Bullock
+3. Reggie Williams
+4. Robin Lopez
+5. Rodney Hood
+
+Their respective birthdates are (in the format DD/MM/YYYY):
+1. Ray McCallum - 12/06/1991
+2. Reggie Bullock - 16/03/1991
+3. Reggie Williams - 14/09/1986
+4. Robin Lopez - 01/04/1988
+5. Rodney Hood - 29/10/1992
+
+So, the answer would be:
+12/06/1991"
+74,J.J. Barea, 02/05/1991
+75,Troy Daniels,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the answers:
+
+
+09/05/1995"
+76,Marcus Smart, 05/03/1990
+77,Briante Weber,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+22/12/1992"
+78,Danny Granger,20/04/1983
+79,Aaron Brooks,14/01/1985
+80,Dwyane Wade, 17/01/1982
+81,Al-Farouq Aminu,21/09/1990
+82,Alan Anderson,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Alan Anderson
+2. Alex Len
+3. Allen Crabbe
+4. Anderson Varejao
+5. Andrew Bogut
+
+Their respective birthdates are (in DD/MM/YYYY format, based on public data):
+1. Alan Anderson - 16/10/1982
+2. Alex Len - 16/06/1993
+3. Allen Crabbe - 09/04/1992
+4. Anderson Varejao - 28/09/1982
+5. Andrew Bogut - 28/11/1984
+
+So, the answer would be:
+16/10/1982"
+83,Chris Copeland, 17/03/1984
+84,Al Jefferson,04/01/1985
+85,Tarik Black,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+Sheldon McClellan - 12/21/1992 -> 21/12/1992
+Solomon Hill - 03/18/1991 -> 18/03/1991
+Sonny Weems - 07/08/1986 -> 08/07/1986
+Spencer Hawes - 04/28/1988 -> 28/04/1988
+Stephen Curry - 03/14/1988 -> 14/03/1988
+
+Answer: 21/12/1992"
+86,Chris McCullough, 05/02/1995
+87,Elfrid Payton, 22/02/1994
+88,LaMarcus Aldridge,19/05/1976
+89,Jason Terry, 30/10/1991
+90,Patrick McCaw,05/11/1987
+91,Pero Antic, 05/05/1985
+92,Jordan McRae," 14/09/1989
+
+
+Please note that these dates might not be accurate or up-to-date. For precise information, it's best to consult a reliable source or the database itself.
+
+
+Also, please format this as: 
+28/05/1990"
+93,Jeff Taylor, 15/09/1977
+94,Domantas Sabonis," 03/05/1996
+
+
+Please note that these dates might not be accurate or up-to-date. For precise and reliable information, it's best to consult the original database or a trusted source."
+95,Jon Leuer,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+28/05/1990"
+96,Mindaugas Kuzminskas, 06/03/1994
+97,Jodie Meeks, 23/08/1988
+98,Larry Drew II,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+For Kevin Martin, Kevon Looney, Kostas Papanikolaou, Kyle Anderson, and Kyrie Irving, their birthdates are as follows:
+
+- Kevin Martin: February 1, 1983
+- Kevon Looney: February 6, 1996
+- Kostas Papanikolaou: July 31, 1990
+- Kyle Anderson: September 20, 1993
+- Kyrie Irving: March 23, 1992
+
+Thus, in the format DD/MM/YYYY, their birthdates are:
+
+01/02/1983"
+99,Jerian Grant, 23/05/1989
+100,Yogi Ferrell, 15/07/1991
+101,Tristan Thompson," 16/07/1986
+
+
+Please note that these dates might not be accurate or up-to-date. The actual birthdates may vary depending on the source and availability of information.
+
+
+Also, please note that the format is DD/MM/YYYY as requested."
+102,Kyle Anderson,01/07/1989
+103,Markel Brown, 20/01/1996
+104,Austin Daye, 05/06/1988
+105,Malachi Richardson,31/07/1990
+106,Spencer Hawes,02/10/1992
+107,Marcus Morris,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+19/07/1985"
+108,Shawn Marion, 09/04/1991
+109,Alex Len, 16/06/1993
+110,Taj Gibson,07/05/1978
+111,Aron Baynes, 09/12/1986
+112,Larry Sanders,06/02/1996
+113,Allen Crabbe, 09/04/1992
+114,Anthony Bennett,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Anthony Bennett
+2. Anthony Morrow
+3. Aron Baynes
+4. Arron Afflalo
+5. Austin Daye
+
+Their respective birthdates are (in DD/MM/YYYY format, based on public data):
+1. Anthony Bennett - 14/03/1993
+2. Anthony Morrow - 27/09/1985
+3. Aron Baynes - 09/12/1986
+4. Arron Afflalo - 15/10/1985
+5. Austin Daye - 05/06/1988
+
+So, the answer would be:
+14/03/1993"
+115,Joey Dorsey,29/06/1981
+116,Kelly Oubre Jr., 15/09/1993
+117,Gorgui Dieng,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+Giannis Antetokounmpo: 06/12/1994
+Glen Davis: 01/01/1986
+Gorgui Dieng: 18/04/1990
+Grant Jerrett: 08/07/1993 (Note: The day and month of Grant Jerrett's birthdate may not be publicly available or verified, this is based on limited information)
+Greg Monroe: 04/06/1990
+
+So the answer would be:
+06/12/1994"
+118,Will Barton,"13/04/1994
+
+
+Please note that these dates might not be accurate or up-to-date, as my training data may not have the most recent information. For precise and current information, it's best to consult a reliable database or source."
+119,Rashad Vaughn,29/07/1982
+120,Jeff Ayres, 20/01/1976
+121,Shawn Long, 10/06/1984
+122,Sergio Rodriguez,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Rudy Gay
+2. Russ Smith
+3. Ryan Hollins
+4. Ryan Kelly
+5. Sebastian Telfair
+
+Their respective birthdates are (in DD/MM/YYYY format):
+1. Rudy Gay - 17/08/1986
+2. Russ Smith - 19/04/1991
+3. Ryan Hollins - 10/06/1984
+4. Ryan Kelly - 09/04/1991
+5. Sebastian Telfair - 09/06/1985
+
+So, the answer would be:
+17/08/1986"
+123,Ian Mahinmi,03/04/1991
+124,DeAndre Jordan,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the answers:
+
+
+13/01/1988"
+125,Rodney Hood, 16/08/1996
+126,Anthony Morrow, 27/09/1985
+127,Karl-Anthony Towns,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Jordan Hamilton
+2. Jordan McRae
+3. Josh McRoberts
+4. Josh Richardson
+5. Justise Winslow
+
+Their respective birthdates are (based on public data):
+1. Jordan Hamilton - October 6, 1990
+2. Jordan McRae - March 28, 1991
+3. Josh McRoberts - February 28, 1987
+4. Josh Richardson - September 15, 1993
+5. Justise Winslow - March 26, 1996
+
+So, the formatted birthdates would be:
+06/10/1990"
+128,Jordan Hamilton, 02/03/1987
+129,Corey Brewer, 05/03/1986
+130,Sonny Weems,12/06/1986
+131,Eric Bledsoe,"
+    ```
+
+4. **Output the Results**: Finally, you would output these formatted birthdates separated by semicolons.
+
+Without actual access to the database or the specific birthdates of these players, I can only provide a hypothetical answer based on fictional data:
+
+Let's assume the following birthdates (completely made up for demonstration purposes):
+- Elijah Millsap: 1987-08-22
+- Emmanuel Mudiay: 1996-03-05
+- Eric Bledsoe: 1989-12-09
+- Eric Gordon: 1988-12-25
+- Erick Green: 1991-05-09
+
+Then, the formatted answer would be:
+22/08/1987"
+132,Ryan Hollins, 16/03/1991
+133,Jason Richardson, 04/01/1993
+134,Nikola Jokic,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+Marquese Chriss - July 2, 1997 (02/07/1997)
+Martell Webster - December 4, 1986 (04/12/1986)
+Mike Miller - February 19, 1980 (19/02/1980)
+Mindaugas Kuzminskas - June 19, 1989 (19/06/1989)
+Nene - September 13, 1982 (13/09/1982)
+
+
+So the answer would be: 
+02/07/1997"
+135,Derrick Rose, 04/10/1988
+136,CJ McCollum, 19/09/1991
+137,John Wall,16/12/1983
+138,Kevin Garnett,19/04/1991
+139,Chasson Randle,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide a general approach on how one might solve this using hypothetical data.
+
+Assuming there's a table named ""Players"" with columns for ""player_name"" and ""birthdate"", you could query this information directly from the database. However, without actual database access or specific birthdate information for these players, I can only demonstrate the logic:
+
+1. Connect to your database.
+2. Query the ""Players"" table for the ""birthdate"" where ""player_name"" matches each of the given names.
+3. Format the retrieved birthdates into ""DD/MM/YYYY"" format.
+
+Given the lack of specific data and direct database access, let's proceed with a hypothetical answer based on publicly known information about these players:
+
+- Chasson Randle: February 5, 1993
+- Chris Copeland: March 17, 1984
+- Chris McCullough: February 5, 1995
+- Clint Capela: May 18, 1994
+- Corey Brewer: March 5, 1986
+
+Thus, the formatted answer would be:
+05/02/1993"
+140,Joe Harris, 09/10/1992
+141,D.J. Augustin,10/11/1987
+142,Hedo Turkoglu,04/06/1990
+143,Tony Wroten, 25/02/1997
+144,Kyrie Irving,29/09/1988
+145,Stephen Curry,29/01/1993
+146,Tony Parker, 17/03/1994
+147,Ian Clark,01/03/1990
+148,Nene, 05/06/1987
+149,Ryan Kelly, 14/09/1986
+150,Jae Crowder, 18/03/1997
+151,Festus Ezeli,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+29/10/1992"
+152,James Harden, 26/06/1984
+153,Evan Fournier,25/12/1988
+154,Channing Frye,17/05/1983
+155,Kenneth Faried,"To answer the last question, I'll need to provide the birthdates of the players in the format DD/MM/YYYY. Here are the answers:
+
+23/08/1994"
+156,Dante Exum,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the birthdates in the format DD/MM/YYYY:
+
+13/07/1995"
+157,Andrew Bogut, 28/11/1984
+158,Brandan Wright,05/10/1987
+159,Patrick Beverley,13/10/1988
+160,Cory Joseph,20/08/1991
+161,Ivica Zubac,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+28/11/1986"
+162,O.J. Mayo, 19/02/1980
+163,Brian Roberts,12/03/1985
+164,Caron Butler,13/03/1980
+165,Arron Afflalo, 15/10/1985
+166,Darrun Hilliard, 13/04/1993
+167,Clint Capela, 18/05/1994
+168,Pablo Prigioni,19/02/1995
+169,Eric Gordon,05/03/1996
+170,James Michael McAdoo," 06/07/1990
+
+
+Please note that these dates might not be accurate or up-to-date. For a reliable answer, it's best to consult the actual database or a trusted source."
+171,Tyler Ennis,01/11/1982
+172,Pierre Jackson, 12/07/1988
+173,Hassan Whiteside,08/07/1993
+174,Giannis Antetokounmpo, 30/12/1981
+175,Cory Jefferson,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+Cory Jefferson - 12/26/1990 -> 26/12/1990
+Cory Joseph - 08/20/1991 -> 20/08/1991
+Cristiano Felicio - 07/07/1992 -> 07/07/1992
+D.J. Augustin - 11/10/1987 -> 10/11/1987
+Danny Granger - 04/20/1983 -> 20/04/1983
+
+Answer: 26/12/1990"
+176,Kelly Olynyk, 28/02/1987
+177,Thon Maker,08/07/1986
+178,Elijah Millsap,"To answer this question, I would need access to the actual database or a list of birthdates for the players. Since that information is not provided here, I'll guide you through how one might approach this task if they had access to such data.
+
+1. **Access the Database**: First, you would need to connect to your database using SQL or another database query language.
+
+2. **Query the Database**: You would then write a query to select the birthdate for each player from your ""Players"" table. Assuming the birthdate column is named ""birthdate"" and it's in a format that your database can understand (like YYYY-MM-DD), your query might look something like this:
+
+    ```sql
+    SELECT birthdate 
+    FROM Players 
+    WHERE player_name IN ('Elijah Millsap', 'Emmanuel Mudiay', 'Eric Bledsoe', 'Eric Gordon', 'Erick Green')"
+179,Greg Monroe,18/04/1990
+180,Dejounte Murray, 19/09/1996
+181,Sheldon McClellan, 09/06/1985
+182,Jonathon Simmons, 14/05/1990
+183,Delon Wright," 26/04/1991
+
+
+Please note that these dates might not be accurate or up-to-date. The actual birthdates can be verified through official sources, such as the players' official social media profiles, team websites, or reputable sports databases.
+
+
+Also, please note that the format of the answer is DD/MM/YYYY as requested."
+184,Zaza Pachulia, 30/12/1994
+185,Beno Udrih,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Beno Udrih
+2. Blake Griffin
+3. Brandan Wright
+4. Brandon Jennings
+5. Brian Roberts
+
+Their respective birthdates are (in DD/MM/YYYY format, based on public data):
+- Beno Udrih: 05/07/1982
+- Blake Griffin: 16/03/1989
+- Brandan Wright: 05/10/1987
+- Brandon Jennings: 23/09/1989
+- Brian Roberts: 12/03/1985 (Note: There might be multiple individuals with this name, but based on a well-known basketball player by this name)
+
+Answer: 05/07/1982"
+186,Kent Bazemore,15/11/1995
+187,Chandler Parsons,25/10/1988
+188,Tobias Harris,"To answer this question, I would need access to the actual database or a list of player birthdates. However, based on publicly available information, here are the answers:
+
+
+26/06/1985"
+189,Anderson Varejao, 28/09/1982
+190,Reggie Bullock,"To answer this question, I would need access to the actual database or a list of birthdates for the players mentioned. However, based on publicly available information, here are the answers:
+
+
+Quincy Acy - October 6, 1990
+Quincy Miller - November 18, 1992
+Rajon Rondo - February 22, 1986
+Rashad Vaughn - August 16, 1996
+Raul Neto - May 19, 1992
+
+
+So the answer in DD/MM/YYYY format would be:
+06/10/1990"
+191,Will Bynum,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide an example based on publicly available information up to my last update in 2023.
+
+Given the names:
+1. Tristan Thompson
+2. Troy Daniels
+3. Troy Williams
+4. Tyler Ennis
+5. Wesley Matthews
+
+Their respective birthdates are (in DD/MM/YYYY format):
+1. Tristan Thompson - 13/03/1991
+2. Troy Daniels - 15/07/1991
+3. Troy Williams - 30/12/1994
+4. Tyler Ennis - 24/08/1994
+5. Wesley Matthews - 14/10/1986
+
+So, the answer would be:
+13/03/1991"
+192,Norris Cole, 04/12/1986
+193,Kostas Papanikolaou,19/11/1989
+194,Timothe Luwawu-Cabarrot,14/03/1988
+195,Tony Allen, 22/11/1991
+196,Jeremy Lin,"To answer this question, I would need access to a database containing the birthdates of basketball players. Since I don't have direct access to such databases, I'll provide a general approach on how one might solve this using hypothetical data.
+
+Assuming there's a table named ""Players"" with columns for ""player_name"" and ""birthdate"", you could query this information directly from the database. However, without actual database access or specific birthdate information for these players, I can only demonstrate the logic:
+
+1. Connect to the database.
+2. Query the ""Players"" table for the ""birthdate"" where ""player_name"" matches each of the given names.
+3. Format the retrieved birthdates into ""DD/MM/YYYY"" format.
+
+Given the lack of specific data and direct database access, let's proceed with known information about these players' birthdates (which might not be up-to-date or accurate without current database access):
+
+- Jeff Ayres: April 29, 1987
+- Jeff Taylor: May 23, 1989
+- Jeremy Lin: August 23, 1988
+- Jerian Grant: October 9, 1992
+- Jodie Meeks: August 21, 1987
+
+Thus, the formatted answer would be:
+29/04/1987"
+197,Marcus Thornton, 21/11/1988
+198,Wesley Matthews,17/05/1982
+199,Darren Collison, 23/08/1987

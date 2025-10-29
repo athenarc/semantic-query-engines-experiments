@@ -1,6 +1,6 @@
 #!/bin/bash
 sizes=(5 10 20)
-models_ollama=("gemma3:12b llama3.1:8b")
+models_ollama=("gemma3-32k:latest")
 models_vllm=("meta-llama/Llama-3.1-8B-Instruct")
 
 for size in "${sizes[@]}"; do

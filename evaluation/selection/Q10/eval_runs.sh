@@ -3,9 +3,9 @@ models_ollama=("gemma3:12b" "llama3.3:70b")
 models_vllm=("meta-llama/Llama-3.1-8B-Instruct")
 
 for model in "${models_ollama[@]}"; do
-    # echo "Evaluating Lotus with -m $model"
-    # python evaluation/selection/Q10/eval_scripts/lotus_q10_eval.py -m $model -p ollama
-    # echo ""
+    echo "Evaluating Lotus with -m $model"
+    python evaluation/selection/Q10/eval_scripts/lotus_q10_eval.py -m $model -p ollama
+    echo ""
     
     echo "Evaluating Palimpzest with -m $model"
     python evaluation/selection/Q10/eval_scripts/pz_q10_eval.py -m $model -p ollama
@@ -13,9 +13,9 @@ for model in "${models_ollama[@]}"; do
 done
 
 for model in "${models_vllm[@]}"; do
-    # echo "Evaluating Lotus with -m $model"
-    # python evaluation/selection/Q10/eval_scripts/lotus_q10_eval.py -m $model -p vllm
-    # echo ""
+    echo "Evaluating Lotus with -m $model"
+    python evaluation/selection/Q10/eval_scripts/lotus_q10_eval.py -m $model -p vllm
+    echo ""
 
     echo "Evaluating Palimpzest with -m $model"
     python evaluation/selection/Q10/eval_scripts/pz_q10_eval.py -m $model -p vllm

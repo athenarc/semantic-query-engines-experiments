@@ -15,7 +15,7 @@ parser.add_argument("-p", "--provider", nargs='?', default='ollama', const='olla
 args = parser.parse_args()
 
 if args.wandb:
-    run_name = f"blendsql_Q1_map_{args.model.replace(':', '_')}_{args.provider}_{args.size}"
+    run_name = f"blendsql_Q1_map_{args.model.replace(':', '_').replace('/', '_')}_{args.provider}_{args.size}"
 
     wandb.init(
         project="semantic_operations",
@@ -37,15 +37,16 @@ elif args.provider == 'vllm':
     model = LiteLLM("hosted_vllm/" + args.model, 
                     config={"api_base": "http://localhost:5001/v1", "timeout": 50000, "cache": False}, 
                     caching=False)
+elif args.provider == 'transformers':
+    model = TransformersLLM(
+        "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
+        config={"device_map": "auto"},
+        caching=False,
+    )
 
 # Prepare our BlendSQL connection
 bsql = BlendSQL(
     db=reports,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -58,6 +59,7 @@ smoothie = bsql.execute(
     SELECT Game_ID, Reports.Report, {{
         LLMMAP(
             'Return a list of strings with player names that did play in the game described by the given report. Please ignore the players who are mentioned and did not play but returned them all.',
+            return_type='List[str]',
             Reports.Report
         )
     }}
@@ -80,11 +82,6 @@ reports = {
 }
 bsql = BlendSQL(
     db=reports,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -97,7 +94,7 @@ smoothie = bsql.execute(
         SELECT *,
         'Player: ' || CAST(player_name AS VARCHAR) || '\nReport: ' || Report AS context
         FROM Reports
-    ) SELECT Game_ID, Report, player_name, {{LLMMap('How many points did the player have in the game? Return -1 if there are no mentions for points.', context)}} AS points
+    ) SELECT Game_ID, Report, player_name, {{LLMMap('How many points did the player have in the game? Return -1 if there are no mentions for points.', context, return_type='int')}} AS points
     FROM joined_context
     """,
     infer_gen_constraints=True,
@@ -108,11 +105,6 @@ exec_times.append(time.time() - start)
 reports = { 'Reports': smoothie.df }
 bsql = BlendSQL(
     db=reports,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -125,7 +117,7 @@ smoothie = bsql.execute(
         SELECT *,
         'Player: ' || CAST(player_name AS VARCHAR) || '\nReport: ' || Report AS context
         FROM Reports
-    ) SELECT Game_ID, Report, player_name, points, {{LLMMap('How many assists did the player have in the game? Return -1 if there are no mentions for assists.', context)}} AS assists
+    ) SELECT Game_ID, Report, player_name, points, {{LLMMap('How many assists did the player have in the game? Return -1 if there are no mentions for assists.', context, return_type='int')}} AS assists
     FROM joined_context
     """,
     infer_gen_constraints=True,
@@ -136,11 +128,6 @@ exec_times.append(time.time() - start)
 reports = {'Reports': smoothie.df }
 bsql = BlendSQL(
     db=reports,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -153,7 +140,7 @@ smoothie = bsql.execute(
     SELECT *,
     'Player: ' || CAST(player_name AS VARCHAR) || '\nReport: ' || Report AS context
     FROM Reports
-    ) SELECT Game_ID, Report, player_name, points, assists, {{LLMMap('How many total rebounds did the player have in the game? Return -1 if there are no mentions for total rebounds.', context)}} AS total_rebounds
+    ) SELECT Game_ID, Report, player_name, points, assists, {{LLMMap('How many total rebounds did the player have in the game? Return -1 if there are no mentions for total rebounds.', context, return_type='int')}} AS total_rebounds
     FROM joined_context
     """,
     infer_gen_constraints=True,
@@ -164,11 +151,6 @@ exec_times.append(time.time() - start)
 reports = {'Reports': smoothie.df }
 bsql = BlendSQL(
     db=reports,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -181,7 +163,7 @@ smoothie = bsql.execute(
         SELECT *,
         'Player: ' || CAST(player_name AS VARCHAR) || '\nReport: ' || Report AS context
         FROM Reports
-    ) SELECT Game_ID, Report, player_name, points, assists, total_rebounds, {{LLMMap('How many steals did the player have in the game? Return -1 if there are no mentions for steals.', context)}} AS steals
+    ) SELECT Game_ID, Report, player_name, points, assists, total_rebounds, {{LLMMap('How many steals did the player have in the game? Return -1 if there are no mentions for steals.', context, return_type='int')}} AS steals
     FROM joined_context
     """,
     infer_gen_constraints=True,
@@ -192,11 +174,6 @@ exec_times.append(time.time() - start)
 reports = {'Reports': smoothie.df }
 bsql = BlendSQL(
     db=reports,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     model=model,
     verbose=True,
     ingredients={LLMMap},
@@ -209,7 +186,7 @@ smoothie = bsql.execute(
         SELECT *,
         'Player: ' || CAST(player_name AS VARCHAR) || '\nReport: ' || Report AS context
         FROM Reports
-    ) SELECT Game_ID, Report, player_name, points, assists, total_rebounds, steals, {{LLMMap('How many blocks did the player have in the game? Return -1 if there are no mentions for blocks.', context)}} AS blocks
+    ) SELECT Game_ID, Report, player_name, points, assists, total_rebounds, steals, {{LLMMap('How many blocks did the player have in the game? Return -1 if there are no mentions for blocks.', context, return_type='int')}} AS blocks
     FROM joined_context
     """,
     
@@ -602,7 +579,8 @@ print(smoothie.df)
 
 if args.wandb:
     smoothie.df.to_csv(f"evaluation/projection/Q1/results/blendsql_Q1_map_{args.model.replace('/', '_').replace(':', '_')}_{args.provider}_{args.size}.csv")
-
+    print("Execution time: ", sum(exec_times))
+    
     wandb.log({
         "result_table": wandb.Table(dataframe=smoothie.df.fillna(-1)),
         "execution_time": sum(exec_times)

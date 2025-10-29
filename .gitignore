@@ -4,3 +4,5 @@ wandb/
 *.out
 .env
 parse-answer-errors/
+lotus/queries/aggregation/aggregation_runs.sh
+lotus/queries/selection/selection_runs.sh

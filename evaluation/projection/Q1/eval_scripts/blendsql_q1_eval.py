@@ -23,7 +23,7 @@ args = parser.parse_args()
 df_labels = pd.read_csv('datasets/rotowire/player_labels.csv')
 df_labels = df_labels[df_labels['Game ID'] < args.size]
 
-if args.provider == 'ollama':
+if args.provider == 'ollama' or 'trasnformers':
     results_file = f"evaluation/projection/Q1/results/blendsql_Q1_map_{args.model.replace(':', '_')}_{args.provider}_{args.size}.csv"
 elif args.provider == 'vllm':
     results_file = f"evaluation/projection/Q1/results/blendsql_Q1_map_{args.model.replace('/', '_')}_{args.provider}_{args.size}.csv"
@@ -35,7 +35,6 @@ df_blendsql.rename(columns={"Game_ID": "Game ID", "points": "Points", "assists":
 df_blendsql = df_blendsql.groupby('Game ID', group_keys=False).apply(match_group)
 
 df = df_labels.merge(df_blendsql, left_on=['Game ID', 'Player Name'], right_on=['Game ID', 'matched_player'], how='left', indicator=True)
-df.to_csv("tmp.csv")
 
 df.drop(columns=["Defensive rebounds", "Offensive rebounds", "3-pointers attempted", "3-pointers made", "Field goals attempted", "Field goals made", "Free throws attempted", "Free throws made", "Minutes played", "Personal fouls", "Turnovers", "Field goal percentage", "Free throw percentage", "3-pointer percentage"], inplace=True)
 

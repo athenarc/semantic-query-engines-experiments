@@ -1,5 +1,6 @@
 import pandas as pd
 from rapidfuzz import process, fuzz
+import argparse
 
 def match_name(name, choices, scorer=fuzz.ratio, threshold=40):
     if not choices:
@@ -30,11 +31,15 @@ def count_false_negatives(df):
     return len(df[(df['_merge'] == 'left_only') & (df['Points_gt'] == 17.0)])
 
 if __name__ == '__main__':
-    player_labels = pd.read_csv('datasets/players_labels_100.csv')
-    player_labels = player_labels[player_labels['Game ID'] < 14]
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-s", "--size", nargs='?', default=100, const=100, type=int, help="The input size")
+    args = parser.parse_args()
+
+    player_labels = pd.read_csv('datasets/rotowire/player_labels.csv')
+    player_labels = player_labels[player_labels['Game ID'] < args.size]
     player_labels = player_labels[['Game ID', 'Player Name', 'Points']]
 
-    eleet_res = pd.read_csv('selection/Q6/results/eleet_Q6.csv')
+    eleet_res = pd.read_csv(f'evaluation/selection/Q6/results/ELEET_Q6_{args.size}.csv')
 
     eleet_res = eleet_res.groupby('Game ID', group_keys=False).apply(match_group)
 

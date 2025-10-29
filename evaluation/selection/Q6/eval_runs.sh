@@ -14,9 +14,9 @@ for size in "${sizes[@]}"; do
     done
 
     for model in "${models_vllm[@]}"; do
-        # echo "Evaluating with -s $size and -m $model"
-        # echo -n "Lotus "
-        # python evaluation/selection/Q6/eval_scripts/lotus_q6_eval.py -s $size -m $model -p vllm
+        echo "Evaluating with -s $size and -m $model"
+        echo -n "Lotus "
+        python evaluation/selection/Q6/eval_scripts/lotus_q6_eval.py -s $size -m $model -p vllm
         echo "Evaluating Palimpzest with -s $size and -m $model"
         python evaluation/selection/Q6/eval_scripts/pz_q6_eval.py -s $size -m $model -p vllm
         echo ""

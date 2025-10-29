@@ -22,7 +22,7 @@ pz_labels['Game ID'] = pz_labels['filename'].str.extract(r'report_(\d+)\.txt').a
 pz_labels.sort_values(['Game ID'], inplace=True)
 # pz_labels['Game ID'] = pz_labels['Game ID'] - 1
 
-def match_name(name, choices, scorer=fuzz.ratio, threshold=30):
+def match_name(name, choices, scorer=fuzz.ratio, threshold=40):
     if not choices:
         return None
     match = process.extractOne(name, choices, scorer=scorer, score_cutoff=threshold)

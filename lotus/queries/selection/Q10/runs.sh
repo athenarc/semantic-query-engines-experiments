@@ -17,7 +17,7 @@ for model in "${models_ollama[@]}"; do
     python lotus/queries/selection/Q10/cascades.py --wandb -m $model -p ollama
 done
 
-# for model in "${models_vllm[@]}"; do
-#     echo "Running Q10 cascades with -m $model"
-#     python lotus/queries/selection/Q10/cascades.py --wandb -m $model -p vllm
-# done
+for model in "${models_vllm[@]}"; do
+    echo "Running Q10 cascades with -m $model"
+    python lotus/queries/selection/Q10/cascades.py --wandb -m $model -p vllm
+done

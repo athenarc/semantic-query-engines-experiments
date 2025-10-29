@@ -11,7 +11,7 @@ args = parser.parse_args()
 
 player_evi = pd.read_csv("datasets/rotowire/player_evidence_mine.csv")[['Player Name', 'nationality']].dropna(subset=['nationality']).head(args.size)
 
-if args.provider == 'ollama':
+if args.provider == 'ollama' or args.provider == 'transformers':
     results_file = f"evaluation/projection/Q3/results/lotus_Q3_map_{args.model.replace(':', '_')}_{args.provider}_{args.size}.csv"
 elif args.provider == 'vllm':
     results_file = f"evaluation/projection/Q3/results/lotus_Q3_map_{args.model.replace('/', '_')}_{args.provider}_{args.size}.csv"
@@ -22,10 +22,16 @@ df = player_evi.merge(lotus_evi, left_on='Player Name', right_on='Player Name', 
 df['nationality_y'] = df['nationality_y'].str.replace('\n', '')
 
 df["match"] = df.apply(
-    lambda row: (row["nationality_y"] in row["nationality_x"]) or 
-                (row["nationality_x"] in row["nationality_y"]) or
-                (fuzz.ratio(row['nationality_x'], row['nationality_y']) >= 70),
+    lambda row: (
+        isinstance(row["nationality_x"], str)
+        and isinstance(row["nationality_y"], str)
+        and len(row["nationality_y"]) <= 30
+        and (
+            row["nationality_y"].lower() in row["nationality_x"].lower()
+            or row["nationality_x"].lower() in row["nationality_y"].lower()
+            or fuzz.ratio(row["nationality_x"], row["nationality_y"]) >= 70
+        )
+    ),
     axis=1
 )
-
 print(f"Accuracy: {df['match'].mean():.2%}")

@@ -1,10 +1,10 @@
 import pandas as pd
 from rapidfuzz import process, fuzz
+import argparse
 
-df_labels = pd.read_csv('datasets/team_labels_100.csv')[['Game ID', 'Team Name', 'Wins', 'Losses', 'Total points']]
-df_eleet = pd.read_csv('projection/Q2/results/eleet_q2.csv')
 
-def match_name(name, choices, scorer=fuzz.ratio, threshold=30):
+
+def match_name(name, choices, scorer=fuzz.ratio, threshold=40):
     if not choices:
         return None
     match = process.extractOne(name, choices, scorer=scorer, score_cutoff=threshold)
@@ -21,6 +21,15 @@ def match_group(group):
     group['matched_team'] = group['name'].apply(lambda x: match_name(x, choices))
     return group
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-s", "--size", nargs='?', default=100, const=100, type=int, help="The input size")
+args = parser.parse_args()
+
+df_labels = pd.read_csv('datasets/rotowire/team_labels.csv')[['Game ID', 'Team Name', 'Wins', 'Losses', 'Total points']]
+df_labels = df_labels[df_labels['Game ID'] < args.size]
+
+
+df_eleet = pd.read_csv(f'evaluation/projection/Q2/results/ELEET_Q2_{args.size}.csv')
 df_eleet = df_eleet.groupby('Game ID', group_keys=False).apply(match_group)
 df = df_labels.merge(df_eleet, left_on=['Game ID', 'Team Name'], right_on=['Game ID', 'matched_team'], how='left', indicator=True)
 

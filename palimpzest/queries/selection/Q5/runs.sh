@@ -10,9 +10,9 @@ for size in "${sizes[@]}"; do
     done
 done
 
-# for size in "${sizes[@]}"; do
-#     for model in "${models_vllm[@]}"; do
-#         echo "Running Q5 with -s $size and m $model"
-#         python palimpzest/queries/selection/Q5/q5.py --wandb -s $size -m $model -p vllm
-#     done
-# done
+for size in "${sizes[@]}"; do
+    for model in "${models_vllm[@]}"; do
+        echo "Running Q5 with -s $size and m $model"
+        python palimpzest/queries/selection/Q5/q5.py --wandb -s $size -m $model -p vllm
+    done
+done

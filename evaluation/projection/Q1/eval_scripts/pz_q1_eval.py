@@ -2,7 +2,7 @@ import pandas as pd
 from rapidfuzz import process, fuzz
 import argparse
 
-def match_name(name, choices, scorer=fuzz.ratio, threshold=50):
+def match_name(name, choices, scorer=fuzz.ratio, threshold=60):
     if not choices:
         return None
     match = process.extractOne(name, choices, scorer=scorer, score_cutoff=threshold)

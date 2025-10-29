@@ -13,7 +13,7 @@ done
 for size in "${sizes[@]}"; do
     for model in "${models_vllm[@]}"; do
         echo "Running Q1 with -s $size and m $model"
-        # python lotus/queries/projection/Q1/map.py --wandb -s $size -m $model -p vllm
+        python lotus/queries/projection/Q1/map.py --wandb -s $size -m $model -p vllm
         python lotus/queries/projection/Q1/extract.py --wandb -s $size -m $model -p vllm
     done
 done

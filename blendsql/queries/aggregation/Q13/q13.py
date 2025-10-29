@@ -27,6 +27,10 @@ df_reviews = pd.read_csv("datasets/imdb_reviews/imdb_reviews.csv").head(args.siz
 
 if args.provider == 'ollama':
     model=LiteLLM(args.provider + '/' + args.model, config={"timeout": 50000}, caching=False)
+elif args.provider == 'vllm':
+     model = LiteLLM("hosted_vllm/" + args.model, 
+                    config={"api_base": "http://localhost:5001/v1", "timeout": 50000, "cache": False}, 
+                    caching=False)
 
 db = {
     "Reviews": pd.DataFrame(df_reviews)

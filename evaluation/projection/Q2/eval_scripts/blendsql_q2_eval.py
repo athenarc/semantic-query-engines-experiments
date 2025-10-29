@@ -1,7 +1,8 @@
 import pandas as pd
 from rapidfuzz import process, fuzz
+import argparse
 
-def match_name(name, choices, scorer=fuzz.ratio, threshold=30):
+def match_name(name, choices, scorer=fuzz.ratio, threshold=40):
     if not choices:
         return None
     match = process.extractOne(name, choices, scorer=scorer, score_cutoff=threshold)
@@ -13,10 +14,24 @@ def match_group(group):
     group['matched_team'] = group['team_name'].apply(lambda x: match_name(x, choices))
     return group
 
+parser = argparse.ArgumentParser()
+parser.add_argument("-s", "--size", nargs='?', default=20, const=20, type=int, help="The input size")
+parser.add_argument("-m", "--model", nargs='?', default='gemma3:12b', const='gemma3:12b', type=str, help="The model to use")
+parser.add_argument("-p", "--provider", nargs='?', default='ollama', const='ollama', type=str, help="The provider of the model")
+args = parser.parse_args()
+
 if __name__ == '__main__':
-    df_labels = pd.read_csv('datasets/team_labels_100.csv')
+    df_labels = pd.read_csv('datasets/rotowire/team_labels.csv')
+    df_labels = df_labels[df_labels['Game ID'] < args.size]
+
+    if args.provider == 'ollama' or args.provider == 'transformers':
+        results_file = f"evaluation/projection/Q2/results/blendsql_Q2_map_{args.model.replace(':', '_')}_{args.provider}_{args.size}.csv"
+    elif args.provider == 'vllm':
+        results_file = f"evaluation/projection/Q2/results/blendsql_Q2_map_{args.model.replace('/', '_')}_{args.provider}_{args.size}.csv"
+
+
     df_labels = df_labels[['Game ID', 'Team Name', 'Wins', 'Losses', 'Total points']]
-    blendsql_labels = pd.read_csv("projection/Q2/results/blendsql_q2_transformers.csv")
+    blendsql_labels = pd.read_csv(results_file)
     blendsql_labels.drop(columns={'Report'}, inplace=True)
     blendsql_labels.rename(columns={'Game_ID' : 'Game ID', 'wins' : 'Wins', 'losses' : 'Losses', 'total_points': 'Total points'}, inplace=True)
 
