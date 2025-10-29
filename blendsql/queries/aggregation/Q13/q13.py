@@ -9,7 +9,7 @@ from blendsql.ingredients import LLMQA
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--wandb", action='store_true', help="Enables wandb report")
-parser.add_argument("-s", "--size", nargs='?', default=1000, const=1000, type=int, help="The input size")
+parser.add_argument("-s", "--size", nargs='?', default=728, const=728, type=int, help="The input size")
 parser.add_argument("-m", "--model", nargs='?', default='gemma3:12b', const='gemma3:12b', type=str, help="The model to use")
 parser.add_argument("-p", "--provider", nargs='?', default='ollama', const='ollama', type=str, help="The provider of the model")
 args = parser.parse_args()
@@ -23,27 +23,18 @@ if args.wandb:
         group="semantic aggregation",
     )
 
-df_reviews = pd.read_csv("datasets/imdb_reviews/imdb_reviews.csv").head(args.size)[['review']]
+df_reports = pd.read_csv("datasets/rotowire/reports_table.csv").head(args.size)
 
-if args.provider == 'ollama':
+if (args.provider == "ollama"):
     model=LiteLLM(args.provider + '/' + args.model, config={"timeout": 50000}, caching=False)
-elif args.provider == 'vllm':
-     model = LiteLLM("hosted_vllm/" + args.model, 
-                    config={"api_base": "http://localhost:5001/v1", "timeout": 50000, "cache": False}, 
-                    caching=False)
 
 db = {
-    "Reviews": pd.DataFrame(df_reviews)
+    "Reports": df_reports
 }
 
 bsql = BlendSQL(
     db=db,
     model=model,
-    # model=TransformersLLM(
-    #     "/data/hdd1/users/jzerv/models--meta-llama--Llama-3.1-8B-Instruct/snapshots/0e9e39f249a16976918f6564b8830bc894c89659",
-    #     config={"device_map": "auto"},
-    #     caching=False,
-    # ),
     ingredients={LLMQA}
 )
 
@@ -52,8 +43,8 @@ smoothie = bsql.execute(
     """
         SELECT {{
             LLMQA(
-                'Do positive or negative reviews prevail? Return 1 for positive or 0 for negative **and only that**.',
-                context=Reviews.review,
+                'Which player had the most triple-doubles across all the games described from all reports? **Return only the name**.',
+                context=Reports.Report
             )
         }} AS Answer
     """,

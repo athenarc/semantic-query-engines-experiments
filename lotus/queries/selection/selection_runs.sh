@@ -4,7 +4,7 @@ echo "Q5 Experiments"
 ./lotus/queries/selection/Q5/runs.sh
 echo "Q6 Experiments"
 ./lotus/queries/selection/Q6/runs.sh
-echo "Q9 Experiments"
-./lotus/queries/selection/Q9/runs.sh
-echo "Q10 Experiments"
-./lotus/queries/selection/Q10/runs.sh
+echo "Q7 Experiments"
+./lotus/queries/selection/Q7/runs.sh
+echo "Q8 Experiments"
+./lotus/queries/selection/Q8/runs.sh
