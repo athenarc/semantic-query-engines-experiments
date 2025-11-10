@@ -2,7 +2,7 @@ import pandas as pd
 from litellm import completion
 
 df_labels = pd.read_csv('players_labels_100.csv')
-df_eleet = pd.read_csv('projection/NER_TE/Q1/eleet.csv')
+df_eleet = pd.read_csv('derivation/NER_TE/Q1/eleet.csv')
 
 def llm_match_name(name, choices):
     if not choices:
