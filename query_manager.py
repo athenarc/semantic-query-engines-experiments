@@ -91,4 +91,4 @@ if __name__ == "__main__":
 	args = parser.parse_args()
 
 	for system in [Path("lotus"), Path("palimpzest"), Path("blendsql")]:
-		add_query(Path("blendsql"), args.index, args.target_class)
+		add_query(system, args.index, args.target_class)
