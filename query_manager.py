@@ -1,11 +1,6 @@
 import argparse
-from ast import pattern
-import os
 import re
-import shutil
-import sys
 from pathlib import Path
-
 
 def find_query_dirs(base: Path):
 	"""Return list of (path, number) for subdirectories named Q<digits> under base."""
@@ -95,5 +90,5 @@ if __name__ == "__main__":
 
 	args = parser.parse_args()
 
-	# for system in [Path("lotus"), Path("palimpzest"), Path("blendsql")]:
-	add_query(Path("blendsql"), args.index, args.target_class)
+	for system in [Path("lotus"), Path("palimpzest"), Path("blendsql")]:
+		add_query(Path("blendsql"), args.index, args.target_class)
