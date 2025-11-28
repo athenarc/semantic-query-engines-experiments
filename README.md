@@ -1,6 +1,6 @@
-# Multi-Modal Query Engines -- Experimentation Suite
+# Semantic Query Engines -- Experimentation Suite
 
-In this project we conduct an experimetation suite to evaluate Multi-Modal Query Engines and their capabilities to perform semantic operations over both structured and unstructured data.
+In this project we conduct an experimetation suite to evaluate Semantic Query Engines and their capabilities to perform semantic operations over both structured and unstructured data.
 The systems that this experimentation suite aims to evaluate are Lotus, Palimpzest, BlendSQL and ELEET over a common set of 14 queries covering a wide range of question categories and utilizing a set of four different datasets, as depicted in the following table:
 
 ![alt text](Queries.png)
