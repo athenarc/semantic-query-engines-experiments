@@ -2,7 +2,7 @@ import argparse
 import re
 from pathlib import Path
 
-def find_query_dirs(base: Path):
+def find_query_dirs(base: Path, reverse: bool = True):
 	"""Return list of (path, number) for subdirectories named Q<digits> under base."""
 	res = []
 	if not base.exists():
@@ -19,7 +19,7 @@ def find_query_dirs(base: Path):
 				if query_index:
 					res.append((query_dir, int(query_index.group(1))))
 
-	res.sort(key=lambda x: x[1], reverse=True)
+	res.sort(key=lambda x: x[1], reverse=reverse)
 	return res
 
 def update_content(dirpath: Path, old_idx: int, new_idx: int):
@@ -29,8 +29,14 @@ def update_content(dirpath: Path, old_idx: int, new_idx: int):
 		if filepath.is_file():
 			content = filepath.read_text()
 
-			# Replace occurrences of the old index with the new one
-			new_content = content.replace(str(old_idx), str(new_idx))
+			# Replace only whole-word Q{old_idx} and q{old_idx} tokens
+			patterns = [
+				(re.compile(rf"\bQ{old_idx}\b"), f"Q{new_idx}"),
+				(re.compile(rf"\bq{old_idx}\b"), f"q{new_idx}"),
+			]
+			new_content = content
+			for pat, repl in patterns:
+				new_content = pat.sub(repl, new_content)
 
 			if new_content != content:
 				filepath.write_text(new_content)
@@ -38,7 +44,7 @@ def update_content(dirpath: Path, old_idx: int, new_idx: int):
 			
 			if (filepath.name == f"q{old_idx}.py"):
 				new_file = filepath.with_name(f"q{new_idx}.py")
-				print(f"Renaming the file: f{filepath} -> {new_file}")
+				print(f"Renaming the file: {filepath} -> {new_file}")
 				filepath.rename(new_file)
 
 def create_query_dir(system: Path, idx: int, target_class: str):
@@ -81,14 +87,39 @@ def add_query(system: Path, new_idx: int, target_class: str = None):
 	if target_class:
 		create_query_dir(system, new_idx, target_class)
 
+def remove_query(system: Path, idx: int):
+	query_dirs = find_query_dirs(system, reverse=False)
+
+	# Remove the specified directory and update contents
+	for dirpath, current_idx in query_dirs:
+		if not dirpath.name.startswith("Q"):
+			continue  # Only process Q directories
+
+		if current_idx == idx:
+			print(f"Removing directory: {dirpath}")
+			for item in dirpath.rglob("*"):
+				if item.is_file():
+					item.unlink()
+			dirpath.rmdir()
+		elif current_idx > idx:
+			update_content(dirpath, current_idx, current_idx - 1)
+
+			new_dir = dirpath.with_name(f"Q{current_idx - 1}")
+			print(f"Renaming directory: {dirpath} -> {new_dir}")
+			dirpath.rename(new_dir)
+
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description="Manage System query indices by inserting and shifting Q directories.")
 
 	parser.add_argument("--target_class", required=True, type=str, help="Class subfolder (e.g., aggregation, derivation)")
 	parser.add_argument("--index", required=True, type=int, help="Index of the query to add (e.g., 2)")
+	parser.add_argument("--remove", action="store_true", help="If set, remove the query at the specified index instead of adding.")
 
 	args = parser.parse_args()
 
 	for system in [Path("lotus"), Path("palimpzest"), Path("blendsql")]:
-		add_query(system, args.index, args.target_class)
+		if (args.remove):
+			remove_query(system, args.index)
+		else:
+			add_query(system, args.index, args.target_class)
