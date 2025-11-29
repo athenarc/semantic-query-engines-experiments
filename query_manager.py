@@ -133,23 +133,23 @@ def create_eval_dir(idx: int, target_class: str):
 	print(f"Created file: {runs_file}")
 
 def add_query(base: Path, new_idx: int, target_class: str = None):
-	# query_dirs = find_query_dirs(base)
+	query_dirs = find_query_dirs(base)
 
-	# # Shift existing directories and update contents
-	# for dirpath, idx in query_dirs:
-	# 	if not dirpath.name.startswith("Q"):
-	# 		continue  # Only process Q directories
+	# Shift existing directories and update contents
+	for dirpath, idx in query_dirs:
+		if not dirpath.name.startswith("Q"):
+			continue  # Only process Q directories
 
-	# 	if idx >= new_idx:
-	# 		update_query_content(dirpath, idx, idx + 1)
+		if idx >= new_idx:
+			update_query_content(dirpath, idx, idx + 1)
 
-	# 		new_dir = dirpath.with_name(f"Q{idx + 1}")
-	# 		print(f"Renaming directory: {dirpath} -> {new_dir}")
-	# 		dirpath.rename(new_dir)
+			new_dir = dirpath.with_name(f"Q{idx + 1}")
+			print(f"Renaming directory: {dirpath} -> {new_dir}")
+			dirpath.rename(new_dir)
 	
-	# # Create new query directory if target_class is provided
-	# if target_class:
-	# 	create_query_dir(base, new_idx, target_class)
+	# Create new query directory if target_class is provided
+	if target_class:
+		create_query_dir(base, new_idx, target_class)
 
 	eval_dirs = find_eval_dirs(base)
 
